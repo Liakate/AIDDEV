@@ -1,0 +1,14 @@
+## Interface: 30300
+## Title: AIDDEV
+## Notes: Addon Integrity & Diagnostics for Ascension (Bronzebeard)
+## Author: CtrlAlt, Liakate Bronzebeard
+## Version: 0.14.0
+## SavedVariables: AIDDEV_DB
+
+Core/Bootstrap.lua
+Core/Lifecycle.lua
+Core/Compliance.lua
+Core/Findings.lua
+
+UI/MainFrame.lua
+UI/SlashDiagnostics.lua

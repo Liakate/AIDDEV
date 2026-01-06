@@ -1,0 +1,96 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Frame name="AIDDEVRuntimeDiagnosticsFrame" parent="AIDDEVMainFrameRuntimePanel" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT"/>
+            <Anchor point="BOTTOMRIGHT"/>
+        </Anchors>
+
+        <Frames>
+
+            <!-- Snapshot -->
+            <Button name="$parentSnapshotButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="120" y="24"/></Size>
+                <Anchors><Anchor point="TOPLEFT" x="10" y="-10"/></Anchors>
+                <Text>Snapshot</Text>
+                <Scripts><OnClick>AIDDEV_RT_Snapshot()</OnClick></Scripts>
+            </Button>
+
+            <!-- Clear Snapshot -->
+            <Button name="$parentClearSnapshotButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="140" y="24"/></Size>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentSnapshotButton" relativePoint="RIGHT" x="10" y="0"/>
+                </Anchors>
+                <Text>Clear Snapshot</Text>
+                <Scripts><OnClick>AIDDEV_RT_ClearSnapshot()</OnClick></Scripts>
+            </Button>
+
+            <!-- Diff -->
+            <Button name="$parentDiffButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="120" y="24"/></Size>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentClearSnapshotButton" relativePoint="RIGHT" x="10" y="0"/>
+                </Anchors>
+                <Text>Diff</Text>
+                <Scripts><OnClick>AIDDEV_RT_Diff()</OnClick></Scripts>
+            </Button>
+
+            <!-- Save Snapshot -->
+            <Button name="$parentSaveSnapshotButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="160" y="24"/></Size>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentDiffButton" relativePoint="RIGHT" x="10" y="0"/>
+                </Anchors>
+                <Text>Save Snapshot</Text>
+                <Scripts><OnClick>AIDDEV_RT_SaveSnapshot()</OnClick></Scripts>
+            </Button>
+
+            <!-- Compare Previous Session -->
+            <Button name="$parentComparePrevButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="200" y="24"/></Size>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentSaveSnapshotButton" relativePoint="RIGHT" x="10" y="0"/>
+                </Anchors>
+                <Text>Compare Prev Session</Text>
+                <Scripts><OnClick>AIDDEV_RT_ComparePrev()</OnClick></Scripts>
+            </Button>
+
+            <!-- Function dropdown -->
+            <Frame name="$parentFunctionDropdown" inherits="UIDropDownMenuTemplate">
+                <Anchors><Anchor point="TOPLEFT" x="10" y="-50"/></Anchors>
+            </Frame>
+
+            <!-- Per-function diff -->
+            <Button name="$parentFunctionDiffButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="160" y="24"/></Size>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentFunctionDropdown" relativePoint="RIGHT" x="10" y="0"/>
+                </Anchors>
+                <Text>Diff Selected Function</Text>
+                <Scripts><OnClick>AIDDEV_RT_FunctionDiff()</OnClick></Scripts>
+            </Button>
+
+            <!-- Main findings -->
+            <ScrollFrame name="$parentFindingsScroll" inherits="UIPanelScrollFrameTemplate">
+                <Size><AbsDimension x="0" y="300"/></Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="10" y="-90"/>
+                    <Anchor point="TOPRIGHT" x="-10" y="-90"/>
+                </Anchors>
+            </ScrollFrame>
+
+            <!-- Diff view -->
+            <ScrollFrame name="$parentDiffScroll" inherits="UIPanelScrollFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentFindingsScroll" relativePoint="BOTTOMLEFT" x="0" y="-10"/>
+                    <Anchor point="BOTTOMRIGHT" x="-10" y="10"/>
+                </Anchors>
+            </ScrollFrame>
+
+        </Frames>
+
+        <Scripts>
+            <OnLoad>AIDDEV_RuntimeDiagnostics_OnLoad(self)</OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

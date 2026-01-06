@@ -1,0 +1,49 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Frame name="AIDDEVClipboardFrame" parent="UIParent" hidden="true" movable="true" enableMouse="true">
+        <Size><AbsDimension x="600" y="300"/></Size>
+        <Anchors><Anchor point="CENTER"/></Anchors>
+
+        <Backdrop bgFile="Interface/DialogFrame/UI-DialogBox-Background"
+                  edgeFile="Interface/DialogFrame/UI-DialogBox-Border"
+                  tile="true">
+            <EdgeSize><AbsValue val="32"/></EdgeSize>
+            <TileSize><AbsValue val="32"/></TileSize>
+        </Backdrop>
+
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString name="$parentTitle" inherits="GameFontNormalLarge">
+                    <Anchors><Anchor point="TOP" y="-10"/></Anchors>
+                    <Text>AIDDEV Clipboard</Text>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <Frames>
+            <ScrollFrame name="$parentScroll" inherits="UIPanelScrollFrameTemplate">
+                <Size><AbsDimension x="560" y="220"/></Size>
+                <Anchors><Anchor point="TOPLEFT" x="20" y="-40"/></Anchors>
+            </ScrollFrame>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+                local fs = self:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
+                fs:SetJustifyH("LEFT")
+                fs:SetJustifyV("TOP")
+                self.contentText = fs
+                self.Scroll:SetScrollChild(fs)
+            </OnLoad>
+
+            <OnMouseDown>
+                if button == "LeftButton" then
+                    self:StartMoving()
+                end
+            </OnMouseDown>
+
+            <OnMouseUp>
+                self:StopMovingOrSizing()
+            </OnMouseUp>
+        </Scripts>
+    </Frame>
+</Ui>

@@ -1,0 +1,33 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Frame name="AIDDEVProjectBrowserFrame" parent="AIDDEVMainFrameStaticPanel" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT"/>
+            <Anchor point="BOTTOMRIGHT"/>
+        </Anchors>
+
+        <Frames>
+
+            <!-- File List -->
+            <ScrollFrame name="$parentFileScroll" inherits="UIPanelScrollFrameTemplate">
+                <Size><AbsDimension x="300" y="0"/></Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="10" y="-10"/>
+                    <Anchor point="BOTTOMLEFT" x="10" y="10"/>
+                </Anchors>
+            </ScrollFrame>
+
+            <!-- File Content -->
+            <ScrollFrame name="$parentContentScroll" inherits="UIPanelScrollFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentFileScroll" relativePoint="TOPRIGHT" x="10" y="0"/>
+                    <Anchor point="BOTTOMRIGHT" x="-10" y="10"/>
+                </Anchors>
+            </ScrollFrame>
+
+        </Frames>
+
+        <Scripts>
+            <OnLoad>AIDDEV_ProjectBrowser_OnLoad(self)</OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

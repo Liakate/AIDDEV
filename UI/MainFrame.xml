@@ -1,0 +1,65 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Frame name="AIDDEVMainFrame" parent="UIParent" hidden="true" movable="true" enableMouse="true">
+        <Size><AbsDimension x="1000" y="650"/></Size>
+        <Anchors><Anchor point="CENTER"/></Anchors>
+
+        <Backdrop bgFile="Interface/DialogFrame/UI-DialogBox-Background"
+                  edgeFile="Interface/DialogFrame/UI-DialogBox-Border"
+                  tile="true">
+            <EdgeSize><AbsValue val="32"/></EdgeSize>
+            <TileSize><AbsValue val="32"/></TileSize>
+        </Backdrop>
+
+        <Scripts>
+            <OnLoad>AIDDEV_Main_OnLoad(self)</OnLoad>
+        </Scripts>
+
+        <Frames>
+
+            <!-- TAB 1 -->
+            <Button name="$parentTab1" inherits="CharacterFrameTabButtonTemplate" id="1">
+                <Anchors><Anchor point="TOPLEFT" x="20" y="-10"/></Anchors>
+                <Scripts><OnClick>AIDDEV_MainUI:SelectTab("static")</OnClick></Scripts>
+                <NormalText><FontString inherits="GameFontHighlightSmall" text="Static Analysis"/></NormalText>
+            </Button>
+
+            <!-- TAB 2 -->
+            <Button name="$parentTab2" inherits="CharacterFrameTabButtonTemplate" id="2">
+                <Anchors><Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT"/></Anchors>
+                <Scripts><OnClick>AIDDEV_MainUI:SelectTab("runtime")</OnClick></Scripts>
+                <NormalText><FontString inherits="GameFontHighlightSmall" text="Runtime Diagnostics"/></NormalText>
+            </Button>
+
+            <!-- RUN DEVTOOLS BUTTON -->
+            <Button name="$parentRunDevToolsButton" inherits="UIPanelButtonTemplate">
+                <Size><AbsDimension x="140" y="24"/></Size>
+                <Anchors><Anchor point="TOPRIGHT" x="-20" y="-10"/></Anchors>
+                <Text>Run DevTools</Text>
+                <Scripts><OnClick>AIDDEV_Main_RunDevTools()</OnClick></Scripts>
+            </Button>
+
+            <!-- ENVIRONMENT BANNER -->
+            <FontString name="$parentEnvBanner" inherits="GameFontHighlightSmall">
+                <Anchors><Anchor point="TOPLEFT" x="20" y="-40"/></Anchors>
+                <Text>Environment: (loading...)</Text>
+            </FontString>
+
+            <!-- STATIC PANEL -->
+            <Frame name="$parentStaticPanel">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-70"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="15"/>
+                </Anchors>
+            </Frame>
+
+            <!-- RUNTIME PANEL -->
+            <Frame name="$parentRuntimePanel" hidden="true">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-70"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="15"/>
+                </Anchors>
+            </Frame>
+
+        </Frames>
+    </Frame>
+</Ui>
