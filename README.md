@@ -1,111 +1,77 @@
-# AIDDEV  
-Ascension Integrated Developer Environment (In‑Game)
+# 🛠️ AIDDEV & Ascension API Docs
 
-AIDDEV is the ingame IDE for Ascension addon developers.  
-It provides a unified interface for **static analysis**, **runtime diagnostics**, and **developer tooling**, all inside the WoW client.
-
-AIDDEV is the *consumer* layer in the three addon toolchain:
-
-AIDDEV_Companion → AIDDEV_DevTools → AIDDEV
-
-AIDDEV never loads files directly from disk.  
-It only consumes **validated, normalized project data** provided by the Companion and approved by DevTools.
+![Status](https://img.shields.io)
+![Platform](https://img.shields.io)
+![Tooling](https://img.shields.io)
 
 ---
 
-## Features
+## 👋 Introduction: The "Bob" Backstory
 
-### ✔ Static Analysis
-- Project browser  
-- File viewer  
-- AST based handler signature inference  
-- Static diagnostics (ruleset‑driven)
+Hi, my name is **Bob**.
 
-### ✔ Runtime Diagnostics
-- Live function call tracking  
-- Error tracking  
-- Argument pattern analysis  
-- Snapshot system  
-- Diffing (snapshot vs now, previous session vs now)  
-- Per‑function drill‑down diff  
-- Color‑coded severity output  
-- Live monitor window
+After quitting retail WoW years ago, I eventually found my way to **Project Ascension**. I play casually, but I quickly ran into a major problem: **The UI.** I play on a massive TV, and standard addons like Weakauras and ElvUI often come with tiny, inconsistent fonts. I got tired of squinting, so I decided to look under the hood.
 
-### ✔ Integrated DevTools Access
-AIDDEV includes a **Run DevTools** button that triggers pre‑flight validation before loading a project.
+> [!IMPORTANT]
+> **I am not a coder.** I am "lazy by nature" when it comes to boring work, so I recruited an AI assistant (ChatGPT) to do the heavy lifting. This project is the result of me trying to fix my own "Big TV" problems and realizing the Ascension API needed better documentation.
 
-### ✔ Environment Banner
-Shows metadata provided by AIDDEV_Companion:
-- Realm  
-- Ruleset  
-- Client build  
-- Encoding  
-- Line endings  
+### 🤝 Shout Outs
+A big `/wave` to **Xurkon**. We met on Discord, and he showed me his massive upcoming project. He's the reason I have no spare time left now!
+👉 **Check him out:** [Xurkon on GitHub](https://github.com)
 
 ---
 
-## How AIDDEV Works
+# 💻 AIDDEV (In-Game IDE)
+**Ascension Integrated Developer Environment**
 
-AIDDEV does **not** load or validate projects.  
-Instead, it relies on:
+AIDDEV is the in-game IDE for Ascension addon developers. It provides a unified interface for **static analysis**, **runtime diagnostics**, and **developer tooling** inside the WoW client.
 
-### 1. AIDDEV_Companion  
-Provides:
-- Project files  
-- Environment metadata  
+### 🏗️ The Ecosystem
+AIDDEV is the **consumer layer** of a three-part toolchain. It does not load files directly from disk; it only consumes validated data.
 
-### 2. AIDDEV_DevTools  
-Validates:
-- Syntax  
-- Encoding  
-- TOC/environment  
-- Line endings  
-- Fatal/non‑fatal rule taxonomy  
+```mermaid
+graph LR
+  A[AIDDEV_Companion] -->|Normalizes| B[AIDDEV_DevTools]
+  B -->|Validates| C[AIDDEV]
+  style C fill:#f96,stroke:#333,stroke-width:4px
+```
 
-Only after DevTools approves the project does AIDDEV load it.
-
----
-
-## How to Use AIDDEV
-
-### Open AIDDEV
-
-/aiddev
-
-### Tabs
-
-#### **Static Analysis**
-Browse project files, inspect content, and view static diagnostics.
-
-#### **Runtime Diagnostics**
-Analyze runtime behavior:
-- Take snapshots  
-- Diff snapshots  
-- Compare with previous session  
-- Drill into specific functions  
-- Monitor live calls  
-
-### Live Monitor
-
-/aiddevlive
-
-## When to Use AIDDEV
-
-Use AIDDEV when you want to:
-
-- Inspect your addon’s source code in‑game  
-- Compare static expectations vs runtime behavior  
-- Debug event handlers, message handlers, and UI callbacks  
-- Track argument patterns and runtime anomalies  
-- Capture snapshots before/after gameplay scenarios  
-- Validate that your addon behaves deterministically  
-
-AIDDEV is the **analysis layer**, not the validation layer.
+### ✨ Key Features
+*   **🔍 Static Analysis:** Project browser, AST-based handler inference, and ruleset-driven diagnostics.
+*   **⚡ Runtime Diagnostics:** Live function call tracking, argument pattern analysis, and a **Snapshot System** for diffing session data.
+*   **🛡️ DevTools Integration:** Integrated "Run DevTools" button for pre-flight validation (Syntax, Encoding, Line Endings).
+*   **📊 Environment Banner:** Real-time metadata for Realm, Ruleset, Client build, and Encoding.
 
 ---
 
-## Requirements
+## 🕹️ How to Use
 
-- AIDDEV_Companion  
-- AIDDEV_DevTools  
-- Ascension client  
+### Commands
+| Command | Action |
+| :--- | :--- |
+| `/aiddev` | Opens the main IDE interface |
+| `/aiddevlive` | Toggles the Live Monitor window |
+
+### Workflow
+1.  **Static Analysis:** Inspect source code and static expectations.
+2.  **Runtime Diagnostics:** Capture snapshots before/after gameplay to validate deterministic behavior.
+
+---
+
+## 📂 About the Documentation Scans
+
+The documentation files included here are scans I ran to figure out the Ascension API, "beautified" by ChatGPT.
+
+> [!WARNING]
+> **User Judgement Required:**
+> Remember: *Shit in, shit out.* Since I don't code, I let the AI process these. Use your own judgment when using these documentations.
+
+---
+
+## 📋 Requirements
+- [ ] **AIDDEV_Companion** (Provides project files)
+- [ ] **AIDDEV_DevTools** (Validation layer)
+- [ ] **Ascension Client**
+
+---
+*Created by Bob — Powered by ChatGPT, Coffee, and the Ascension Community.*
