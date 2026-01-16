@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 # 🛠️ AIDDEV & Ascension API Docs
+=======
+# WORK IN PROGRESS!!!
+
+# AIDDEV  
+Ascension Integrated Developer Environment (In‑Game)
+>>>>>>> bcd0266533d6b1ba691d946501e5a996da0d83cd
 
 ![Status](https://img.shields.io)
 ![Platform](https://img.shields.io)
